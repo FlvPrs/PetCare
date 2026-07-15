@@ -3284,3 +3284,138 @@ Action:
 
 Consider defining a bean of type 'com.atv.PetCare.mapper.AppointmentMapper' in your configuration.
 
+2026-07-15 16:07:28 [] INFO  com.atv.PetCare.PetCareApplication - Starting PetCareApplication using Java 21.0.10 with PID 9704 (D:\Flavio\Eclipse-WS\PetCare\target\classes started by 48196758 in D:\Flavio\Eclipse-WS\PetCare)
+2026-07-15 16:07:28 [] INFO  com.atv.PetCare.PetCareApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-15 16:07:28 [] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-07-15 16:07:28 [] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-07-15 16:07:28 [] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-15 16:07:29 [] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 3 JPA repository interfaces.
+2026-07-15 16:07:29 [] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-07-15 16:07:29 [] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-15 16:07:29 [] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-15 16:07:29 [] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1266 ms
+2026-07-15 16:07:29 [] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-15 16:07:29 [] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-15 16:07:30 [] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-15 16:07:30 [] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-15 16:07:30 [] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@64fcaf03
+2026-07-15 16:07:30 [] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-15 16:07:30 [] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-15 16:07:30 [] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/PetCare]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.4
+	Default catalog/schema: PetCare/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-15 16:07:31 [] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-15 16:07:31 [] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-15 16:07:31 [] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-15 16:07:31 [] WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'appointmentController' defined in file [D:\Flavio\Eclipse-WS\PetCare\target\classes\com\atv\PetCare\controller\AppointmentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'appointmentService' defined in file [D:\Flavio\Eclipse-WS\PetCare\target\classes\com\atv\PetCare\service\AppointmentService.class]: Unsatisfied dependency expressed through constructor parameter 2: No qualifying bean of type 'com.atv.PetCare.mapper.AppointmentMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-07-15 16:07:31 [] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-15 16:07:31 [] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-15 16:07:31 [] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-15 16:07:31 [] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2026-07-15 16:07:31 [] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-07-15 16:07:31 [] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 2 of constructor in com.atv.PetCare.service.AppointmentService required a bean of type 'com.atv.PetCare.mapper.AppointmentMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.atv.PetCare.mapper.AppointmentMapper' in your configuration.
+
+2026-07-15 16:07:49 [] INFO  com.atv.PetCare.PetCareApplication - Starting PetCareApplication using Java 21.0.10 with PID 2056 (D:\Flavio\Eclipse-WS\PetCare\target\classes started by 48196758 in D:\Flavio\Eclipse-WS\PetCare)
+2026-07-15 16:07:49 [] INFO  com.atv.PetCare.PetCareApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-15 16:07:49 [] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-07-15 16:07:49 [] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-07-15 16:07:49 [] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-15 16:07:50 [] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 3 JPA repository interfaces.
+2026-07-15 16:07:50 [] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-07-15 16:07:50 [] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-15 16:07:50 [] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-15 16:07:50 [] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1250 ms
+2026-07-15 16:07:50 [] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-15 16:07:50 [] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-15 16:07:51 [] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-15 16:07:51 [] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-15 16:07:51 [] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@49f71b2d
+2026-07-15 16:07:51 [] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-15 16:07:51 [] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-15 16:07:51 [] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/PetCare]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.4
+	Default catalog/schema: PetCare/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-15 16:07:52 [] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-15 16:07:52 [] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-15 16:07:52 [] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-15 16:07:53 [] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-07-15 16:07:53 [] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-07-15 16:07:53 [] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-07-15 16:07:53 [] INFO  com.atv.PetCare.PetCareApplication - Started PetCareApplication in 4.296 seconds (process running for 4.666)
+2026-07-15 16:08:01 [] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-15 16:08:01 [] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-07-15 16:08:01 [] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-07-15 16:08:01 [f4031ea2-a678-436e-bba5-88f69bbd0255] INFO  com.atv.PetCare.service.PetService - Iniciando busca de todos os pets
+2026-07-15 16:08:01 [f4031ea2-a678-436e-bba5-88f69bbd0255] INFO  com.atv.PetCare.service.PetService - Foram encontrados 7 pets
+2026-07-15 16:08:30 [] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-07-15 16:08:30 [] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-15 16:08:30 [] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-07-15 16:08:30 [] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-15 16:08:30 [] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-15 16:08:30 [] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-15 16:08:30 [] INFO  com.atv.PetCare.PetCareApplication - Starting PetCareApplication using Java 21.0.10 with PID 2056 (D:\Flavio\Eclipse-WS\PetCare\target\classes started by 48196758 in D:\Flavio\Eclipse-WS\PetCare)
+2026-07-15 16:08:30 [] INFO  com.atv.PetCare.PetCareApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-15 16:08:30 [] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-15 16:08:30 [] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 3 JPA repository interfaces.
+2026-07-15 16:08:30 [] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-07-15 16:08:30 [] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-15 16:08:30 [] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-15 16:08:30 [] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 219 ms
+2026-07-15 16:08:30 [] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-15 16:08:30 [] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-15 16:08:30 [] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-07-15 16:08:30 [] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@743795e8
+2026-07-15 16:08:30 [] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-07-15 16:08:30 [] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-15 16:08:30 [] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/PetCare]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.4
+	Default catalog/schema: PetCare/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-15 16:08:30 [] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-15 16:08:30 [] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-15 16:08:30 [] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-07-15 16:08:30 [] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-07-15 16:08:30 [] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-07-15 16:08:30 [] INFO  com.atv.PetCare.PetCareApplication - Started PetCareApplication in 0.557 seconds (process running for 42.116)
+2026-07-15 16:08:30 [] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged

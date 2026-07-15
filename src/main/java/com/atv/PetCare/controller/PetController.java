@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.atv.PetCare.dto.PetCreateDTO;
 import com.atv.PetCare.dto.PetResponseDTO;
 import com.atv.PetCare.dto.PetUpdateDTO;
-import com.atv.PetCare.entity.Pet;
 import com.atv.PetCare.service.PetService;
 
 import jakarta.validation.Valid;
