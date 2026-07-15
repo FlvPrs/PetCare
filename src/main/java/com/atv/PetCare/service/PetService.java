@@ -36,23 +36,32 @@ public class PetService {
         this.petRepository = petRepository;
     }
 
-    public List<Pet> listar() {
+    public List<PetResponseDTO> listar() {
 
         log.info("Iniciando busca de todos os pets");
 
-        List<Pet> pets = petRepository.findAll();
+        List<PetResponseDTO> pets = petRepository.findAll()
+                .stream()
+                .map(mapper::entityToResponseDto)
+                .toList();
 
         log.info("Foram encontrados {} pets", pets.size());
 
         return pets;
     }
 
-    public List<Pet> listarPorEspecie(String especie) {
+    public List<PetResponseDTO> listarPorEspecie(
+            String especie) {
 
-        log.info("Buscando pets da espécie [{}]", especie);
+        log.info(
+                "Buscando pets da espécie [{}]",
+                especie);
 
-        List<Pet> pets =
-                petRepository.findByEspecie(especie);
+        List<PetResponseDTO> pets =
+                petRepository.findByEspecie(especie)
+                        .stream()
+                        .map(mapper::entityToResponseDto)
+                        .toList();
 
         log.info(
                 "Encontrados {} pets da espécie [{}]",
@@ -62,14 +71,18 @@ public class PetService {
         return pets;
     }
 
-    public List<Pet> listarIdadeMaiorQue(Integer idade) {
+    public List<PetResponseDTO> listarIdadeMaiorQue(
+            Integer idade) {
 
         log.info(
                 "Buscando pets com idade maior que [{}]",
                 idade);
 
-        List<Pet> pets =
-                petRepository.findByIdadeGreaterThan(idade);
+        List<PetResponseDTO> pets =
+                petRepository.findByIdadeGreaterThan(idade)
+                        .stream()
+                        .map(mapper::entityToResponseDto)
+                        .toList();
 
         log.info(
                 "Encontrados {} pets com idade maior que [{}]",

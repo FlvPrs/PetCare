@@ -36,19 +36,19 @@ public class PetController {
     }
 
     @GetMapping("/listar")
-    public List<Pet> listar() {
+    public List<PetResponseDTO> listar() {
         return service.listar();
     }
     
     @GetMapping("/especie")
-    public List<Pet> listarPorEspecie(
+    public List<PetResponseDTO> listarPorEspecie(
             @RequestParam String especie) {
 
         return service.listarPorEspecie(especie);
     }
 
     @GetMapping("/idade")
-    public List<Pet> listarIdadeMaiorQue(
+    public List<PetResponseDTO> listarIdadeMaiorQue(
             @RequestParam Integer idade) {
 
         return service.listarIdadeMaiorQue(idade);
