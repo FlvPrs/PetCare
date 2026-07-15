@@ -1,15 +1,17 @@
 package com.atv.PetCare.entity;
 
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,27 +19,24 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "PET")
+@Table(name = "APPOINTMENT")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pet {
+public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String nome;
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime dataHora;
 
-    private String especie;
-	
-    private Integer idade;
-    
+    private String observacao;
+
     @ManyToOne
-    @JoinColumn(name = "OWNER_ID")
-    private Owner owner;
-    
-    @OneToMany(mappedBy = "pet")
-    private List<Appointment> appointments;
+    @JoinColumn(name = "PET_ID")
+    private Pet pet;
 }
