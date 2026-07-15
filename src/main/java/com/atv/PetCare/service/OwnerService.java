@@ -10,6 +10,7 @@ import com.atv.PetCare.dto.OwnerCreateDTO;
 import com.atv.PetCare.dto.OwnerDetalheDTO;
 import com.atv.PetCare.dto.OwnerResponseDTO;
 import com.atv.PetCare.entity.Owner;
+import com.atv.PetCare.exception.OwnerNotFoundException;
 import com.atv.PetCare.mapper.OwnerMapper;
 import com.atv.PetCare.repository.OwnerRepository;
 
@@ -41,7 +42,7 @@ public class OwnerService {
                         "Tutor [{}] não encontrado",
                         id);
 
-                    return new RuntimeException(
+                    return new OwnerNotFoundException(
                             "Tutor não encontrado");
                 });
 

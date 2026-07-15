@@ -12,6 +12,7 @@ import com.atv.PetCare.dto.PetResponseDTO;
 import com.atv.PetCare.dto.PetUpdateDTO;
 import com.atv.PetCare.entity.Owner;
 import com.atv.PetCare.entity.Pet;
+import com.atv.PetCare.exception.PetNotFoundException;
 import com.atv.PetCare.mapper.PetMapper;
 import com.atv.PetCare.repository.OwnerRepository;
 import com.atv.PetCare.repository.PetRepository;
@@ -106,7 +107,7 @@ public class PetService {
                                 "Tutor [{}] não encontrado",
                                 dto.ownerId());
 
-                            return new RuntimeException(
+                            return new PetNotFoundException(
                                     "Tutor não encontrado");
                         });
 
@@ -140,7 +141,7 @@ public class PetService {
                                 "Pet [{}] não encontrado",
                                 id);
 
-                            return new RuntimeException(
+                            return new PetNotFoundException(
                                     "Pet não encontrado");
                         });
 
@@ -170,7 +171,7 @@ public class PetService {
                                 "Pet [{}] não encontrado",
                                 id);
 
-                            return new RuntimeException(
+                            return new PetNotFoundException(
                                     "Pet não encontrado");
                         });
 

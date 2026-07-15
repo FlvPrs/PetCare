@@ -8,6 +8,7 @@ import com.atv.PetCare.dto.AppointmentCreateDTO;
 import com.atv.PetCare.dto.AppointmentResponseDTO;
 import com.atv.PetCare.entity.Appointment;
 import com.atv.PetCare.entity.Pet;
+import com.atv.PetCare.exception.PetNotFoundException;
 import com.atv.PetCare.mapper.AppointmentMapper;
 import com.atv.PetCare.repository.AppointmentRepository;
 import com.atv.PetCare.repository.PetRepository;
@@ -48,7 +49,7 @@ public class AppointmentService {
                             "Pet [{}] não encontrado para criação da consulta",
                             dto.petId());
 
-                    return new RuntimeException(
+                    return new PetNotFoundException(
                             "Pet não encontrado");
                 });
 
