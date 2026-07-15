@@ -18,24 +18,27 @@ import com.atv.PetCare.repository.PetRepository;
 
 @Service
 public class PetService {
-	
-	private final PetMapper mapper;
-	
-	private static final Logger log =
+
+    private static final Logger log =
             LoggerFactory.getLogger(PetService.class);
 
+    private final PetMapper mapper;
     private final PetRepository petRepository;
-    
-    private final OwnerRepository ownerRepository; 
+    private final OwnerRepository ownerRepository;
 
-    public PetService(PetRepository petRepository,PetMapper mapper,OwnerRepository ownerRepository) {
-    	this.ownerRepository = ownerRepository;
-    	this.mapper			 = mapper;
-        this.petRepository 	 = petRepository;
+    public PetService(
+            PetRepository petRepository,
+            PetMapper mapper,
+            OwnerRepository ownerRepository) {
+
+        this.ownerRepository = ownerRepository;
+        this.mapper = mapper;
+        this.petRepository = petRepository;
     }
 
     public List<Pet> listar() {
-    	log.info("Iniciando busca de todos os pets");
+
+        log.info("Iniciando busca de todos os pets");
 
         List<Pet> pets = petRepository.findAll();
 
@@ -43,55 +46,125 @@ public class PetService {
 
         return pets;
     }
-    
+
     public List<Pet> listarPorEspecie(String especie) {
-        return petRepository.findByEspecie(especie);
+
+        log.info("Buscando pets da espécie [{}]", especie);
+
+        List<Pet> pets =
+                petRepository.findByEspecie(especie);
+
+        log.info(
+                "Encontrados {} pets da espécie [{}]",
+                pets.size(),
+                especie);
+
+        return pets;
     }
-    
+
     public List<Pet> listarIdadeMaiorQue(Integer idade) {
-        return petRepository.findByIdadeGreaterThan(idade);
+
+        log.info(
+                "Buscando pets com idade maior que [{}]",
+                idade);
+
+        List<Pet> pets =
+                petRepository.findByIdadeGreaterThan(idade);
+
+        log.info(
+                "Encontrados {} pets com idade maior que [{}]",
+                pets.size(),
+                idade);
+
+        return pets;
     }
 
-	public PetResponseDTO criar(PetCreateDTO dto) {
-		
-		Owner owner =
-	            ownerRepository.findById(dto.ownerId())
-	                .orElseThrow();
-		
-		Pet pet = mapper.createDtoToEntity(dto);
-		
-		pet.setOwner(owner);
+    public PetResponseDTO criar(PetCreateDTO dto) {
 
-	    Pet salvo = petRepository.save(pet);
+        log.info(
+                "Iniciando criação do pet [{}]",
+                dto.nome());
 
-	    return mapper.entityToResponseDto(salvo);
-	    
-	}
+        Owner owner =
+                ownerRepository.findById(dto.ownerId())
+                        .orElseThrow(() -> {
 
-	public PetResponseDTO  atualizar(UUID id, PetUpdateDTO dto) {
-		
-		Pet pet = petRepository.findById(id)
-	            .orElseThrow();
+                            log.warn(
+                                "Tutor [{}] não encontrado",
+                                dto.ownerId());
 
-	    mapper.updateEntityFromDto(dto, pet);
+                            return new RuntimeException(
+                                    "Tutor não encontrado");
+                        });
 
-	    Pet atualizado = petRepository.save(pet);
+        Pet pet = mapper.createDtoToEntity(dto);
 
-	    return mapper.entityToResponseDto(atualizado);
-	}
-	
-	public void deletar(UUID id) {
+        pet.setOwner(owner);
 
-	    log.info("Solicitada exclusão do pet {}", id);
+        Pet salvo = petRepository.save(pet);
 
-	    Pet pet = petRepository.findById(id)
-	            .orElseThrow(() -> {
-	                log.warn("Pet {} não encontrado", id);
-	                return new RuntimeException("Pet não encontrado");
-	            });
+        log.info(
+                "Pet criado com sucesso. Id [{}], Nome [{}]",
+                salvo.getId(),
+                salvo.getNome());
 
-	    petRepository.delete(pet);
+        return mapper.entityToResponseDto(salvo);
+    }
 
-	    log.info("Pet {} removido com sucesso", id);
-	}
+    public PetResponseDTO atualizar(
+            UUID id,
+            PetUpdateDTO dto) {
+
+        log.info(
+                "Iniciando atualização do pet [{}]",
+                id);
+
+        Pet pet =
+                petRepository.findById(id)
+                        .orElseThrow(() -> {
+
+                            log.warn(
+                                "Pet [{}] não encontrado",
+                                id);
+
+                            return new RuntimeException(
+                                    "Pet não encontrado");
+                        });
+
+        mapper.updateEntityFromDto(dto, pet);
+
+        Pet atualizado =
+                petRepository.save(pet);
+
+        log.info(
+                "Pet [{}] atualizado com sucesso",
+                atualizado.getId());
+
+        return mapper.entityToResponseDto(atualizado);
+    }
+
+    public void deletar(UUID id) {
+
+        log.info(
+                "Solicitada exclusão do pet [{}]",
+                id);
+
+        Pet pet =
+                petRepository.findById(id)
+                        .orElseThrow(() -> {
+
+                            log.warn(
+                                "Pet [{}] não encontrado",
+                                id);
+
+                            return new RuntimeException(
+                                    "Pet não encontrado");
+                        });
+
+        petRepository.delete(pet);
+
+        log.info(
+                "Pet [{}] removido com sucesso",
+                id);
+    }
 }

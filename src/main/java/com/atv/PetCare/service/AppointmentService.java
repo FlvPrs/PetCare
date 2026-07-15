@@ -37,14 +37,20 @@ public class AppointmentService {
             AppointmentCreateDTO dto) {
 
         log.info(
-            "Criando consulta para pet {}",
-            dto.petId());
+                "Iniciando criação de consulta para o pet [{}]",
+                dto.petId());
 
         Pet pet = petRepository
                 .findById(dto.petId())
-                .orElseThrow(() ->
-                        new RuntimeException(
-                                "Pet não encontrado"));
+                .orElseThrow(() -> {
+
+                    log.warn(
+                            "Pet [{}] não encontrado para criação da consulta",
+                            dto.petId());
+
+                    return new RuntimeException(
+                            "Pet não encontrado");
+                });
 
         Appointment appointment =
                 mapper.createDtoToEntity(dto);
@@ -55,8 +61,12 @@ public class AppointmentService {
                 repository.save(appointment);
 
         log.info(
-            "Consulta {} criada",
-            salvo.getId());
+                "Consulta criada com sucesso. Id [{}], Pet [{}], Tutor [{}]",
+                salvo.getId(),
+                pet.getNome(),
+                pet.getOwner() != null
+                        ? pet.getOwner().getNome()
+                        : "Sem tutor");
 
         return mapper.entityToResponseDto(salvo);
     }
