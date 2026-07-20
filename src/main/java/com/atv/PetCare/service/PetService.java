@@ -5,6 +5,8 @@ import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.atv.PetCare.dto.PetCreateDTO;
@@ -37,18 +39,17 @@ public class PetService {
         this.petRepository = petRepository;
     }
 
-    public List<PetResponseDTO> listar() {
+    public Page<PetResponseDTO> listar(Pageable pageable) {
 
-        log.info("Iniciando busca de todos os pets");
+    	log.info(
+                "Buscando pets. Página [{}], Tamanho [{}]",
+                pageable.getPageNumber(),
+                pageable.getPageSize());
 
-        List<PetResponseDTO> pets = petRepository.findAll()
-                .stream()
-                .map(mapper::entityToResponseDto)
-                .toList();
+        Page<Pet> pets =
+                petRepository.findAll(pageable);
 
-        log.info("Foram encontrados {} pets", pets.size());
-
-        return pets;
+        return pets.map(mapper::entityToResponseDto);
     }
 
     public List<PetResponseDTO> listarPorEspecie(
